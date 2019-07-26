@@ -1,0 +1,113 @@
+<!doctype html>
+
+<head>
+    <title> Read XML </title>
+    <link rel="stylesheet" type="text/css" href="resources/style.css">
+    <link rel="stylesheet" type="text/css" href="fonts/stylesheet.css">
+</head>
+
+<body>
+    <div class="header">
+        <div class="logo">
+            <a href="index.html" title="Reset">
+                <img src="images/logo_adstream_romania.png" alt="Adstrea Romania">
+            </a>
+        </div>
+        <div id="title">
+            <p>National Geographic</p>
+        </div>
+    </div>
+    
+<!--    <div class="metadata">
+        <div class="label">Clock: </div><div class="val" id="xml_clock">1</div>
+        <div class="label">Title: </div><div class="val" id="xml_title">22</div>
+        <div class="label">Version: </div><div class="val" id="xml_ver">333</div>
+        <div class="label">Duration: </div><div class="val" id="xml_dur">4444</div>
+    </div> -->
+    <br><br>
+    <table class="metadata">
+        <tr>
+            <th>L A B E L</th>
+            <th>V A L U E</th>
+        </tr>
+        <tr>
+            <td class="label">Clock</td>
+            <td class="val" id="xml_clock"></td>
+        </tr>
+        <tr>
+            <td class="label">Title</td>
+            <td class="val" id="xml_title"></td>
+        </tr>
+        <tr>
+            <td class="label">Version</td>
+            <td class="val" id="xml_ver"></td>
+        </tr>
+        <tr>
+            <td class="label">Duration</td>
+            <td class="val" id="xml_dur"></td>
+        </tr>
+        <tr>
+            <td class="label">TC in</td>
+            <td class="val" id="xml_tcin"></td>
+        </tr>
+        <tr>
+            <td class="label">TC out</td>
+            <td class="val" id="xml_tcout"></td>
+        </tr>
+        <tr>
+            <td class="label">Aspect Ratio</td>
+            <td class="val" id="xml_asp"></td>
+        </tr>
+        <tr>
+            <td class="label">Comment</td>
+            <td class="val" id="xml_comm"></td>
+        </tr>
+    </table>
+    <br><br>
+    <div id="flnm">Filename: </div>
+    
+    <br><br>
+    <input type="file" id="input" accept="text/xml">
+    <br>
+    <div id="in_flnm">Waiting for file ... </div>   
+    
+    <script>
+    var xhttp = new XMLHttpRequest();
+    let file_name = "temp/example_natgeo_5R26482.xml";
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            myFunction(this);
+        }
+    };
+    xhttp.open("GET", file_name, true);
+    xhttp.send();
+
+    function myFunction(xml) {
+        var xmlDoc = xml.responseXML;
+        document.getElementById("xml_clock").innerHTML = xmlDoc.getElementsByTagName("upn")[0].childNodes[0].nodeValue;
+        document.getElementById("xml_title").innerHTML = xmlDoc.getElementsByTagName("title")[0].childNodes[0].nodeValue;
+        document.getElementById("xml_ver").innerHTML = xmlDoc.getElementsByTagName("version")[0].childNodes[0].nodeValue;
+        document.getElementById("xml_dur").innerHTML = xmlDoc.getElementsByTagName("duration")[0].childNodes[0].nodeValue;
+        document.getElementById("xml_tcin").innerHTML = xmlDoc.getElementsByTagName("tc_in")[0].childNodes[0].nodeValue;
+        document.getElementById("xml_tcout").innerHTML = xmlDoc.getElementsByTagName("tc_out")[0].childNodes[0].nodeValue;
+        document.getElementById("xml_asp").innerHTML = xmlDoc.getElementsByTagName("aspect_ratio")[0].childNodes[0].nodeValue;
+        document.getElementById("xml_comm").innerHTML = xmlDoc.getElementsByTagName("comment")[0].childNodes[0].nodeValue;
+    }
+        
+    document.getElementById("flnm").innerHTML = "<b>Filename: </b>" + file_name;
+        
+    const input_file = document.getElementById("input");
+        
+    input_file.addEventListener('input', () => {
+        document.getElementById("in_flnm").innerHTML = "<b>Input filename: </b>" + input_file.files[0].name;
+        file_name = "temp/" + input_file.files[0].name;
+        xhttp.open("GET", file_name, true);
+        xhttp.send();
+
+ //           const file = input.files.item(0);
+       });
+        
+    </script>
+
+    
+</body>

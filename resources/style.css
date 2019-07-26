@@ -1,0 +1,70 @@
+body {
+    background-color: lightblue;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 20%;
+}
+
+.header #title {
+    width: 200px;
+    font: "Circular Std Bold";
+    font-size: 20px;
+//    padding: 20px auto;
+}
+
+.input-form {
+//    font-size: 30px;
+    display: block;
+    margin-top: 50px;
+    padding: 20px 20px;
+}
+
+
+th, td {
+  padding: 5px;
+}
+
+th {
+    height: 40px;
+    text-align: left;
+    font-weight: bolder;
+    border-bottom: 2px solid #111;
+}
+
+td {
+    height: 30px;
+    border-bottom: 1px solid #aaa;
+}
+
+
+tbody tr:nth-child(odd) {
+  background-color: ##add8ff;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #add8e6;
+}
+
+tbody tr:hover {
+    text-decoration-color: darkgrey;
+    border-bottom: 1px solid #111;
+    background-color:rgb(207, 231, 239);
+}
+
+.metadata {
+    width: 500px;
+    padding: 20px;
+    border-collapse: collapse;
+}
+
+.metadata .label {
+    font-weight: bold;
+}
+
+.metadata .val {
+    font-weight: normal;
+}

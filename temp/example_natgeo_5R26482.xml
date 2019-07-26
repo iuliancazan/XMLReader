@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<file_information>
+    <asset_data>
+        <upn>5R26482</upn>
+        <title>Pallady_Opening_TVC_15sec_wo_date</title>
+        <version>HD</version>
+        <duration>15</duration>
+        <tc_in>00:00:00:00</tc_in>
+        <tc_out>00:00:15:00</tc_out>
+        <aspect_ratio>16:9</aspect_ratio>
+        <segment>
+            <sequence>1</sequence>
+            <tc_in>00:00:00:00</tc_in>
+            <tc_out>00:00:15:00</tc_out>
+        </segment>
+        <comment>TVD072725</comment>
+    </asset_data>
+</file_information>
